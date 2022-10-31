@@ -46,27 +46,25 @@ const generatePassword = function () {
     useSpecialCharacters && optionsCart.push(specialCharacters);
 
     const newOptionsArr = optionsCart.flat();
-    console.log(newOptionsArr);
 
     const passwordArr = [];
 
     for (let i = 0; i < passwordLength; i++) {
       const randomItem = Math.floor(Math.random() * newOptionsArr.length);
-      console.log(randomItem);
       passwordArr.push(newOptionsArr[randomItem]);
     }
+    return passwordArr.join('');
   }
-  return passwordArr.join('');
   // console.log(passwordArr);
 };
 
 // Write password to the #password input
 function writePassword() {
+  passwordText.value = '';
+
   var password = generatePassword();
 
   passwordText.value = password;
-
-  console.log(`I am clicked`);
 }
 
 // Add event listener to generate button
